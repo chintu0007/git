@@ -8,6 +8,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('reports', ReportsController::class);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -19,6 +21,6 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::resource('reports', ReportsController::class);
+
 
 require __DIR__.'/auth.php';
